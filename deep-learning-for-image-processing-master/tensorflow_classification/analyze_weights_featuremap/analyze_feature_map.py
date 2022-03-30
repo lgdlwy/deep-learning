@@ -8,7 +8,7 @@ im_height = 224
 im_width = 224
 
 # load image
-img = Image.open("../tulip.jpg")
+img = Image.open("D:/9.jpg")
 # resize image to 224x224
 img = img.resize((im_width, im_height))
 

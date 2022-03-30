@@ -119,6 +119,7 @@ def train_one_epoch(model, optimizer, data_loader, device, epoch):
     optimizer.zero_grad()
 
     sample_num = 0
+
     data_loader = tqdm(data_loader)
     for step, data in enumerate(data_loader):
         images, labels = data

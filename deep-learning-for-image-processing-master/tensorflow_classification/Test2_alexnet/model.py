@@ -50,7 +50,7 @@ class AlexNet_v2(Model):
             layers.Softmax()
         ])
 
-    def call(self, inputs, **kwargs):
+    def call(self, inputs):
         x = self.features(inputs)
         x = self.flatten(x)
         x = self.classifier(x)

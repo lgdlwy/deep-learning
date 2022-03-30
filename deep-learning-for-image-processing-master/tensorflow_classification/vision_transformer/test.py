@@ -27,17 +27,26 @@ import tensorflow as tf
 import vit_model
 from tensorflow import keras
 from tensorflow.keras import Sequential
-a=([vit_model.Block(dim=768, num_heads=12, qkv_bias=None,
-                             qk_scale=None, drop_ratio=0, attn_drop_ratio=0,
-                             drop_path_ratio=0, name="encoderblock_{}".format(i))
-                       for i in range(3)])
-b=Sequential(*[([vit_model.Block(dim=768, num_heads=12, qkv_bias=None,
-                             qk_scale=None, drop_ratio=0, attn_drop_ratio=0,
-                             drop_path_ratio=0, name="encoderblock_{}".format(i))
-                       for i in range(3)])])
-c=[vit_model.Block(dim=768, num_heads=12, qkv_bias=None,
-                              qk_scale=None, drop_ratio=0, attn_drop_ratio=0,
-                              drop_path_ratio=0, name="encoderblock_{}".format(i))
-                        for i in range(3)]
-print(b)
-
+# a=([vit_model.Block(dim=768, num_heads=12, qkv_bias=None,
+#                              qk_scale=None, drop_ratio=0, attn_drop_ratio=0,
+#                              drop_path_ratio=0, name="encoderblock_{}".format(i))
+#                        for i in range(3)])
+# b=Sequential(*[([vit_model.Block(dim=768, num_heads=12, qkv_bias=None,
+#                              qk_scale=None, drop_ratio=0, attn_drop_ratio=0,
+#                              drop_path_ratio=0, name="encoderblock_{}".format(i))
+#                        for i in range(3)])])
+# c=[vit_model.Block(dim=768, num_heads=12, qkv_bias=None,
+#                               qk_scale=None, drop_ratio=0, attn_drop_ratio=0,
+#                               drop_path_ratio=0, name="encoderblock_{}".format(i))
+#                         for i in range(3)]
+# print(b)
+class a():
+    def call(self,a,b):
+        print("a.call")
+        print(a,b)
+class b(a):
+    def call(self,a):
+        print("b.call")
+        print(a)
+c=b()
+c.call(1,7)

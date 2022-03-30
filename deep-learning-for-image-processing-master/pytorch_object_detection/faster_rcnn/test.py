@@ -27,8 +27,6 @@ import random
 #     print(i,j)
 # print(*d)
 # print(c)
-
-x = torch.randn([1000,84])
-
-print(x[:,0::4].shape)
-
+from PIL import Image
+a=Image.open("D:/4.jpg")
+print()

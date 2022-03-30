@@ -6,7 +6,6 @@ import torch
 import torch.backends.cudnn as cudnn
 import torch.nn as nn
 
-
 def init_seeds(seed=0):
     torch.manual_seed(seed)
 

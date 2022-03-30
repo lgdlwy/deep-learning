@@ -76,11 +76,11 @@ def main():
     # model.build((batch_size, 224, 224, 3))  # when using subclass model
     # model.summary()
     # using keras high level api for training
-    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005),
-                  loss=tf.keras.losses.CategoricalCrossentropy(from_logits=False),
-                  metrics=["accuracy"])
-
-
+    # model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005),
+    #               loss=tf.keras.losses.CategoricalCrossentropy(from_logits=False),
+    #               metrics=["accuracy"])
+    #
+    #
     # callbacks = [tf.keras.callbacks.ModelCheckpoint(filepath='./save_weights/myAlex.h5',
     #                                                 save_best_only=True,
     #                                                 save_weights_only=True,
@@ -137,7 +137,7 @@ def main():
     @tf.function
     def train_step(images, labels):
         with tf.GradientTape() as tape:
-            predictions = model(images, training=True)
+            predictions = model(images,training=True)
             loss = loss_object(labels, predictions)
         gradients = tape.gradient(loss, model.trainable_variables)
         optimizer.apply_gradients(zip(gradients, model.trainable_variables))
@@ -146,11 +146,10 @@ def main():
         train_accuracy(labels, predictions)
 
 
-    @tf.function
+    # @tf.function
     def test_step(images, labels):
         predictions = model(images, training=False)
         t_loss = loss_object(labels, predictions)
-        print('GPU',tf.test.is_gpu_available())
         test_loss(t_loss)
         test_accuracy(labels, predictions)
 

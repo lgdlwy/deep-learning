@@ -20,7 +20,7 @@ def main():
         os.makedirs("./save_weights")
 
     batch_size = 8
-    epochs = 10
+    epochs = 1
     num_classes = 5
     freeze_layers = True
     initial_lr = 0.001
@@ -102,6 +102,9 @@ def main():
     def val_step(val_images, val_labels):
         output = model(val_images, training=False)
         loss = loss_object(val_labels, output)
+        # model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=initial_lr, momentum=0.9),
+        #               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True))
+        # loss1=model.evaluate(val_images,val_labels,batch_size=8)
 
         val_loss(loss)
         val_accuracy(val_labels, output)
